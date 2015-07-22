@@ -22,8 +22,11 @@ function loadData() {
     $body.append('<img class="bgimg" src="' + streetviewUrl + '">');
 
 
+
+
     // load nytimes
-    var nytimesUrl = 'http://api.nytimes.com/svc/search/v2/articlesearch.json?q=' + cityStr + '&sort=newest&api-key=3abc9a3d23e60b38c21b4ab9b0a91c07:17:69911633'
+    // obviously, replace all the "X"s with your own API key
+    var nytimesUrl = 'http://api.nytimes.com/svc/search/v2/articlesearch.json?q=' + cityStr + '&sort=newest&api-key=7ad5b07340f29081bb4ce217ff60668e:2:70342652';
     $.getJSON(nytimesUrl, function(data){
 
         $nytHeaderElem.text('New York Times Articles About ' + cityStr);
@@ -44,10 +47,10 @@ function loadData() {
 
 
     // load wikipedia data
-    var wikiUrl = 'http://en.wikipedia.org/w/api.php?action=opensearch&search=' + cityStr + '&format=json&callback=wikiCallback';
-    var wikiRequestTimeout = setTimeout(function(){
+    var wikiUrl = 'http://en.wikipedassddaffia.org/w/api.php?action=opensearch&search=' + cityStr + '&format=json&callback=wikiCallback123';
+    /*var wikiRequestTimeout = setTimeout(function(){
         $wikiElem.text("failed to get wikipedia resources");
-    }, 8000);
+    }, 8000);*/
 
     $.ajax({
         url: wikiUrl,
@@ -62,7 +65,7 @@ function loadData() {
                 $wikiElem.append('<li><a href="' + url + '">' + articleStr + '</a></li>');
             };
 
-            clearTimeout(wikiRequestTimeout);
+            //clearTimeout(wikiRequestTimeout);
         }
     });
 
